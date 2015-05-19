@@ -1,4 +1,4 @@
-package github.vikram.mockito.junit;
+package github.vikram.mockito.model;
 
 public class Van extends Vehicle {
 

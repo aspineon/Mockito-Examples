@@ -1,7 +1,8 @@
-package github.vikram.mockito.junit;
+package github.vikram.mockito.tdd;
 
 import github.vikram.mockito.model.Customer;
 import github.vikram.mockito.model.Vehicle;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +31,8 @@ public class ReservationManager {
 			throw(new IllegalArgumentException("Argument can not be null"));
 		}
 		
-		return(reservations.get(customerName));
+		return null;
+		
 	}
 	
 	

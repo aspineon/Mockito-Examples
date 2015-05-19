@@ -1,17 +1,35 @@
-package github.vikram.mockito.junit;
+package github.vikram.mockito.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
 public class Customer {
 	
+	@Id
+	private Long id;
+	
+	@NotNull
 	private String firstName;
 	
 	private String lastName;
 	
+	@Size(min=5, max=1000)
 	private String address;
 	
+	@NotNull
 	private String licenseNumber;
+	
+	public Customer() {
+		
+		
+	}
 
-	public Customer(String firstName, String lastName, String address,
+	public Customer(Long id, String firstName, String lastName, String address,
 			String licenseNumber) {
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -48,6 +66,13 @@ public class Customer {
 
 	public void setLicenseNumber(String licenseNumber) {
 		this.licenseNumber = licenseNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", address=" + address
+				+ ", licenseNumber=" + licenseNumber + "]";
 	}
 	
 	

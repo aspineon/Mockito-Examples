@@ -1,6 +1,11 @@
 package github.vikram.mockito.junit;
 
 import static org.junit.Assert.assertEquals;
+import github.vikram.mockito.model.Car;
+import github.vikram.mockito.model.Customer;
+import github.vikram.mockito.model.PickupTruck;
+import github.vikram.mockito.model.Van;
+import github.vikram.mockito.model.Vehicle;
 
 import java.util.logging.Logger;
 
@@ -46,9 +51,9 @@ public class ReservationManagerTest {
 		rManager.getVehicles().add(ford);	
 		
 		//Create Customers
-		Customer murali = new Customer("Murali", "Anantha", "San Francisco", "4XER132");
-		Customer sajjad = new Customer("Sajjad", "Raza", "Fremont", "6RCC215");
-		Customer ram = new Customer("Ram", "Kuchimanchi", "Austin", "9CZW481");
+		Customer murali = new Customer(1000L, "Murali", "Anantha", "San Francisco", "4XER132");
+		Customer sajjad = new Customer(1001L, "Sajjad", "Raza", "Fremont", "6RCC215");
+		Customer ram = new Customer(1002L, "Ram", "Kuchimanchi", "Austin", "9CZW481");
 		
 		//Create Reservations
 		rManager.makeReservation(murali, audi);
