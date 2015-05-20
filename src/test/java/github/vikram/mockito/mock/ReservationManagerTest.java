@@ -141,7 +141,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockitoToMockGivenInputArgument() {
 		
 		
@@ -186,7 +186,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockitoToMockADifferentInputArgument() {
 		
 		
@@ -232,7 +232,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockitoForWideRangeOfInput() {
 		
 		
@@ -283,7 +283,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockitoPartialMock() {
 		
 		
@@ -339,7 +339,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockitoVerifyMock() {
 		
 		
@@ -389,7 +389,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockitoSpy() {
 		
 		
@@ -448,7 +448,7 @@ public class ReservationManagerTest {
 	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
-	//@Ignore
+	@Ignore
 	public void testMockitoException() {
 		
 		

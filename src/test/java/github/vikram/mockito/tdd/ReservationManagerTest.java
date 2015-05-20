@@ -79,7 +79,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testValidCustomerNameShouldGenerateValidCustomerSummary() {
 		
 		/*

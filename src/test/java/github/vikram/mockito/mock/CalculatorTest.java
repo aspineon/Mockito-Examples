@@ -2,7 +2,7 @@ package github.vikram.mockito.mock;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import github.vikram.mockito.junit.Calculator;
+import github.vikram.mockito.model.Calculator;
 
 import java.util.logging.Logger;
 
@@ -107,7 +107,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockAdditionOfTwoIntsToReturnResultOfMultiply(){
 		
 		/*
@@ -149,7 +149,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockSubtractionOfTwoIntsToReturnResultODivision(){
 		
 		/*

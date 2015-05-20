@@ -88,7 +88,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testStaticGetCustomer() {
 		
 		/*
@@ -142,7 +142,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockConstructionOfObjects() throws Exception {
 		
 		/*
