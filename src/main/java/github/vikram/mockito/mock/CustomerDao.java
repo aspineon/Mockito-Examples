@@ -22,7 +22,7 @@ public class CustomerDao {
 	private static EntityManager em = null;
 	private static EntityTransaction tx = null;
 	private static CustomerManager cManager = null;
-	private static String persistenceType = "persistence-network";
+	private static String persistenceType = "persistence-memory";
 	
 	public Customer findCustomerByFirstName(String customerName) {
 		
