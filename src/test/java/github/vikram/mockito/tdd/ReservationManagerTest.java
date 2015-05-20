@@ -22,6 +22,11 @@ public class ReservationManagerTest {
 	private String TEST_CUSTOMER_NAME = "Ram";
 	private static CustomerManager cManager = null;
 	
+	/*
+	 * The @BeforeClass annotation is run ONCE before
+	 * beginning to execute any of the test cases. You
+	 * can use this section to define objects such as loggers
+	 */
 	@BeforeClass
 	public static void init() {
 		logger = Logger.getLogger("Test logger");
@@ -29,30 +34,77 @@ public class ReservationManagerTest {
 		cManager.setCustomerDao(new CustomerDao());
 	}
 	
+	
+	/*
+	 * The @AfterClass annotation is run ONCE after
+	 * all the tests have been executed. You can
+	 * use this section to destroy or clear any resources
+	 * you have allocated in the @BeforeClass section
+	 */
 	@AfterClass
 	public static void destroy() {
 		logger = null;
 		cManager = null;
 	}
 	
+	
+	/*
+	 * @Before section is run before EVERY test. Use this
+	 * section to initialize objects that need to be inited
+	 * for every run
+	 */
 	@Before
 	public void initManager() {
 		rManager = new ReservationManager();
 	}
 	
+	
+	/*
+	 * @After us run after EVERY test case is executed.
+	 * Use this section to destory or clear our objects
+	 * that you inited in the @Before section
+	 */
 	@After
 	public void destroyManager() {
 		rManager = null;
 	}
 	
+	
+	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
+	 * All test cases must follow this convention of
+	 * 			Setup
+	 * 			Execution
+	 * 			Verification
+	 *
+	 */
 	@Test
 	public void testValidCustomerNameShouldGenerateValidCustomerSummary() {
 		
-		CustomerSummary cs = cManager.getCustomerSummary(TEST_CUSTOMER_NAME);
-		logger.info("Customer Summary: " + cs);
+		/*
+		 * 			SETUP
+		 * All data is setup in @Before. Nothing specific to set here
+		 */
 		
+		
+		/*
+		 * 			EXECUTION
+		 * Execute the method under test
+		 */	
+		
+		CustomerSummary cs = cManager.getCustomerSummary(TEST_CUSTOMER_NAME);
+		
+		
+		/*			VERIFICATION
+		 * Verify the result returned by the above invocation
+		 * 
+		 */	
 		assertNotNull(cs);
 		assertEquals(cs.getFirstName(), TEST_CUSTOMER_NAME);
+		logger.info("Customer Summary: " + cs);
+		
 		
 	}
 
