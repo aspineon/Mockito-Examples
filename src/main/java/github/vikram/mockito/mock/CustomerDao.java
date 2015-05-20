@@ -3,7 +3,6 @@ package github.vikram.mockito.mock;
 import github.vikram.mockito.model.Customer;
 import github.vikram.mockito.model.CustomerManager;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -13,6 +12,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
+
 public class CustomerDao {
 	
 	private static Logger logger = Logger.getLogger("CustomerDao");
@@ -21,13 +22,14 @@ public class CustomerDao {
 	private static EntityManager em = null;
 	private static EntityTransaction tx = null;
 	private static CustomerManager cManager = null;
+	private static String persistenceType = "persistence-network";
 	
 	public Customer findCustomerByFirstName(String customerName) {
 		
 		Customer c = null;
 		
 		try{
-			emf = Persistence.createEntityManagerFactory("persistence-unit");
+			emf = Persistence.createEntityManagerFactory(persistenceType);
 			em = emf.createEntityManager();
 			
 			Query query = em.createQuery("SELECT c FROM Customer c WHERE c.firstName='"+customerName+"'");
@@ -35,7 +37,7 @@ public class CustomerDao {
 			
 		} catch(Exception e) {
 			logger.info("Error trying to fetch customer record");
-			//logger.info(ExceptionUtils.getFullStackTrace(e));
+			logger.info(ExceptionUtils.getFullStackTrace(e));
 		}finally {
 		
 			if (em != null) {
@@ -55,7 +57,7 @@ public class CustomerDao {
 		Customer c = null;
 		
 		try{
-			emf = Persistence.createEntityManagerFactory("persistence-unit");
+			emf = Persistence.createEntityManagerFactory(persistenceType);
 			em = emf.createEntityManager();
 			
 			Query query = em.createQuery("SELECT c FROM Customer c WHERE c.lastName='"+customerName+"'");
@@ -83,7 +85,7 @@ public class CustomerDao {
 		List<Customer> customers = null;
 		
 		try{
-			emf = Persistence.createEntityManagerFactory("persistence-unit");
+			emf = Persistence.createEntityManagerFactory(persistenceType);
 			em = emf.createEntityManager();
 			
 			Query query = em.createQuery("SELECT c FROM Customer c");
