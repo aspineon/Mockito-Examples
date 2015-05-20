@@ -386,6 +386,16 @@ public class ReservationManagerTest {
 		 */
 		try {
 			CustomerSummary cs = cManager.getCustomerSummary("RandomString");
+			
+			logger.info("This line should not be printed");
+			
+			/*
+			 * You can use JUnit construct "fail()" to make the test
+			 * fail() at any point.
+			 */
+			fail();
+			
+			
 		} catch (IllegalArgumentException e) {
 			logger.info("Got IllegalArgumentException");
 			throw e;
