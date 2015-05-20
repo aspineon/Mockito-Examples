@@ -19,8 +19,13 @@ import org.junit.runner.RunWith;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
+/*
+ * Annotate the class with @RunWith(MockitoJUnitRunner.class)
+ * if you intend to use @Mock to create mock instances
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class ReservationManagerTest {
 	
@@ -30,7 +35,7 @@ public class ReservationManagerTest {
 	
 	
 	/*
-	 * You can @Mock annotation to define a mock.
+	 * You can use @Mock annotation to define a mock.
 	 * The following statement creates a mock of type
 	 * CustomerDao.class. Another way to defining a mock
 	 * is by doing
@@ -76,6 +81,11 @@ public class ReservationManagerTest {
 	@Before
 	public void initManager() {
 		
+		/*
+		 * This is optional if you hav already annotated
+		 * this class with @RunWith(MockitoJUnitRunner.class) 
+		 */
+		MockitoAnnotations.initMocks(this);
 		
 		/* 
 		 * Create a new instance of CustomerManager. The constructor in 
@@ -85,7 +95,6 @@ public class ReservationManagerTest {
 		 * i.e, Singleton pattern
 		 */
 		cManager = CustomerManager.createInstance();
-		
 		
 		/*
 		 * Set the mock object to the instance of CustomerManager we created
