@@ -2,8 +2,8 @@ package github.vikram.mockito.powermock;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import github.vikram.mockito.mock.CustomerDao;
 import github.vikram.mockito.model.Customer;
+import github.vikram.mockito.model.CustomerDao;
 import github.vikram.mockito.model.CustomerManager;
 
 import java.util.logging.Logger;
@@ -88,7 +88,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testStaticGetCustomer() {
 		
 		/*
@@ -142,7 +142,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockConstructionOfObjects() throws Exception {
 		
 		/*

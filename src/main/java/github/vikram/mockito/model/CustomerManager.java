@@ -1,7 +1,5 @@
 package github.vikram.mockito.model;
 
-import github.vikram.mockito.mock.CustomerDao;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;

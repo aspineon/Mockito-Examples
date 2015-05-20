@@ -79,7 +79,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testVehicleLookUp(){
 		
 		/*
@@ -124,7 +124,7 @@ public class ReservationManagerTest {
 	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
-	@Ignore
+	//@Ignore
 	public void testNullArgumentsShouldThrowException(){
 		
 		/*
@@ -186,7 +186,7 @@ public class ReservationManagerTest {
 	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
-	@Ignore
+	//@Ignore
 	public void testNullCustomerLookupMustThrowException() {
 		
 		/*

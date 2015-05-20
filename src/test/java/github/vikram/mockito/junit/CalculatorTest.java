@@ -72,7 +72,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testAddTwoIntsMustReturnCorrectValue(){
 		
 		/*
@@ -113,7 +113,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testSubtractTwoIntsMustReturnCorrectValue(){
 		
 		/*
@@ -154,7 +154,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMultiplyTwoIntsMustReturnCorrectValue(){
 		
 		/*
@@ -194,7 +194,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testDivideTwoIntsMustReturnCorrectValue(){
 		
 		/*
@@ -245,7 +245,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test(expected=ArithmeticException.class)
-	@Ignore
+	//@Ignore
 	public void testDivideTwoByZeroMustThrowArithmeticException(){
 		
 		/*
@@ -294,7 +294,7 @@ public class CalculatorTest {
 	 *
 	 * Sometimes you may need to ignore an existing test case
 	 * or you may not want a test case to run. To make JUnit not run
-	 * this test, annotate your @Test method with @Ignore
+	 * this test, annotate your @Test method with //@Ignore
 	 * 
 	 */
 	@Test

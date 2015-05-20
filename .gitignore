@@ -11,3 +11,4 @@
 target/
 /mockitoDB/
 /derby.log
+/sun-appserv-samples/

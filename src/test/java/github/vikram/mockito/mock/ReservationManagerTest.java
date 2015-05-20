@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 import github.vikram.mockito.model.Customer;
+import github.vikram.mockito.model.CustomerDao;
 import github.vikram.mockito.model.CustomerManager;
 import github.vikram.mockito.model.CustomerSummary;
 
@@ -140,7 +141,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockitoToMockGivenInputArgument() {
 		
 		
@@ -185,7 +186,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockitoToMockADifferentInputArgument() {
 		
 		
@@ -231,7 +232,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockitoForWideRangeOfInput() {
 		
 		
@@ -282,7 +283,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockitoPartialMock() {
 		
 		
@@ -321,7 +322,7 @@ public class ReservationManagerTest {
 		 */
 		assertEquals(cs2.getFirstName(), "Bob");
 		assertNotNull(cs2);
-		logger.info("Customer Summary:" + cs2);
+		logger.info("Customer Summary 2:" + cs2);
 		
 	}
 	
@@ -338,7 +339,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockitoVerifyMock() {
 		
 		
@@ -388,7 +389,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockitoSpy() {
 		
 		
@@ -447,7 +448,7 @@ public class ReservationManagerTest {
 	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
-	@Ignore
+	//@Ignore
 	public void testMockitoException() {
 		
 		

@@ -107,7 +107,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockAdditionOfTwoIntsToReturnResultOfMultiply(){
 		
 		/*
@@ -149,7 +149,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testMockSubtractionOfTwoIntsToReturnResultODivision(){
 		
 		/*

@@ -1,7 +1,4 @@
-package github.vikram.mockito.mock;
-
-import github.vikram.mockito.model.Customer;
-import github.vikram.mockito.model.CustomerManager;
+package github.vikram.mockito.model;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -22,7 +19,7 @@ public class CustomerDao {
 	private static EntityManager em = null;
 	private static EntityTransaction tx = null;
 	private static CustomerManager cManager = null;
-	private static String persistenceType = "persistence-memory";
+	private static String persistenceType = "persistence-network";
 	
 	public Customer findCustomerByFirstName(String customerName) {
 		

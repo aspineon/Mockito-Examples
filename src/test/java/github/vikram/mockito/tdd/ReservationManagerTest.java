@@ -2,7 +2,7 @@ package github.vikram.mockito.tdd;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import github.vikram.mockito.mock.CustomerDao;
+import github.vikram.mockito.model.CustomerDao;
 import github.vikram.mockito.model.CustomerManager;
 import github.vikram.mockito.model.CustomerSummary;
 
@@ -79,7 +79,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	@Ignore
+	//@Ignore
 	public void testValidCustomerNameShouldGenerateValidCustomerSummary() {
 		
 		/*
