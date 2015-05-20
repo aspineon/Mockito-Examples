@@ -68,9 +68,9 @@ public class CustomerManager {
 	public List<Customer> listCustomers() {
 		List<Customer> customers  = new ArrayList<Customer>();
 		
-		customers.add(new Customer(1L, "Ram", "K", "NY", "ABC123"));
-		customers.add(new Customer(2L, "Murali", "A", "SF", "XYZ123"));
-		customers.add(new Customer(3L, "Sajjad", "R", "FR", "123ABC"));
+		customers.add(new Customer(1L, "Alice", "B", "NY", "ABC123"));
+		customers.add(new Customer(2L, "Bob", "D", "SF", "XYZ123"));
+		customers.add(new Customer(3L, "Charlie", "A", "FR", "123ABC"));
 		
 		
 		return customers;

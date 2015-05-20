@@ -21,7 +21,7 @@ public class ReservationManagerTest {
 	
 	private static Logger logger = null;
 	private ReservationManager rManager = null;
-	private String TEST_CUSTOMER_NAME = "Ram";
+	private String TEST_CUSTOMER_NAME = "Alice";
 	
 	/*
 	 * The @BeforeClass annotation is run ONCE before
@@ -99,7 +99,7 @@ public class ReservationManagerTest {
 		 * 
 		 */	
 		logger.info("Reservation for " + TEST_CUSTOMER_NAME + " -->\n" + v );
-		assertEquals("Ford", v.getMake());
+		assertEquals("Audi", v.getMake());
 	}
 	
 	
@@ -280,14 +280,14 @@ public class ReservationManagerTest {
 		rManager.getVehicles().add(ford);	
 		
 		//Create Customers
-		Customer murali = new Customer(1000L, "Murali", "Anantha", "San Francisco", "4XER132");
-		Customer sajjad = new Customer(1001L, "Sajjad", "Raza", "Fremont", "6RCC215");
-		Customer ram = new Customer(1002L, "Ram", "Kuchimanchi", "Austin", "9CZW481");
+		Customer alice = new Customer(1000L, "Alice", "B", "100 San Francisco Rd", "4XER132");
+		Customer bob = new Customer(1001L, "Bob", "D", "101 New York Rd", "6RCC215");
+		Customer charlie = new Customer(1002L, "Charlie", "A", "102 Austin Rd", "9CZW481");
 		
 		//Create Reservations
-		rManager.makeReservation(murali, audi);
-		rManager.makeReservation(sajjad, chevy);
-		rManager.makeReservation(ram, ford);
+		rManager.makeReservation(alice, audi);
+		rManager.makeReservation(bob, chevy);
+		rManager.makeReservation(charlie, ford);
 		
 		
 	}

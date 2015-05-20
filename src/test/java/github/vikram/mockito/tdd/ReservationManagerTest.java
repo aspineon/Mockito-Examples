@@ -17,10 +17,8 @@ import org.junit.Test;
 public class ReservationManagerTest {
 	
 	private static Logger logger = null;
-	
-	private ReservationManager rManager = null;
-	private String TEST_CUSTOMER_NAME = "Ram";
-	private static CustomerManager cManager = null;
+	private String TEST_CUSTOMER_NAME = "Alice";
+	private CustomerManager cManager = null;
 	
 	/*
 	 * The @BeforeClass annotation is run ONCE before
@@ -30,8 +28,6 @@ public class ReservationManagerTest {
 	@BeforeClass
 	public static void init() {
 		logger = Logger.getLogger("Test logger");
-		cManager = CustomerManager.createInstance();
-		cManager.setCustomerDao(new CustomerDao());
 	}
 	
 	
@@ -44,7 +40,6 @@ public class ReservationManagerTest {
 	@AfterClass
 	public static void destroy() {
 		logger = null;
-		cManager = null;
 	}
 	
 	
@@ -55,7 +50,9 @@ public class ReservationManagerTest {
 	 */
 	@Before
 	public void initManager() {
-		rManager = new ReservationManager();
+		cManager = CustomerManager.createInstance();
+		cManager.setCustomerDao(new CustomerDao());
+		
 	}
 	
 	
@@ -66,7 +63,7 @@ public class ReservationManagerTest {
 	 */
 	@After
 	public void destroyManager() {
-		rManager = null;
+		cManager = null;
 	}
 	
 	

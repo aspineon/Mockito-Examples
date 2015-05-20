@@ -26,7 +26,6 @@ public class ReservationManagerTest {
 	
 	private static Logger logger = null;
 	
-	private static String TEST_CUSTOMER_NAME = "Ram";
 	private CustomerManager cManager = null;
 	
 	
@@ -41,8 +40,8 @@ public class ReservationManagerTest {
 	 */
 	@Mock
 	private CustomerDao daoMock = null;
-	private static Customer dummyRam = null; 
-	private static Customer dummyMurali = null; 
+	private static Customer dummyAlice = null; 
+	private static Customer dummyBob = null; 
 	
 	
 	/*
@@ -99,13 +98,13 @@ public class ReservationManagerTest {
 		 * Create 2 dummy objects that are used by our mock
 		 * as return objects for different sets of input params
 		 */
-		dummyRam = new Customer();
-		dummyRam.setFirstName("Mock-Ram");
-		dummyRam.setLicenseNumber("Mock-Ram-License");
+		dummyAlice = new Customer();
+		dummyAlice.setFirstName("Mock-Alice");
+		dummyAlice.setLicenseNumber("Mock-Alice-License");
 		
-		dummyMurali = new Customer();
-		dummyMurali.setFirstName("Mock-Murali");
-		dummyMurali.setLicenseNumber("Mock-Murali-License");
+		dummyBob = new Customer();
+		dummyBob.setFirstName("Mock-Bob");
+		dummyBob.setLicenseNumber("Mock-Bob-License");
 		
 	}
 	
@@ -136,20 +135,20 @@ public class ReservationManagerTest {
 		
 		/*							SETUP
 		 * You need to specify the mock action for each unique input
-		 * For example, below mocks the stub to return object dummyRam only if
-		 * the argument passed is "Ram". 
+		 * For example, below mocks the stub to return object dummyAlice only if
+		 * the argument passed is "Alice". 
 		 * 
 		 * As you can see, mockito follows a when/then pattern that is easy to read
 		 * 
 		 */
-		Mockito.when(daoMock.findCustomerByFirstName("Ram")).thenReturn(dummyRam);
+		Mockito.when(daoMock.findCustomerByFirstName("Alice")).thenReturn(dummyAlice);
 		
 		/*
 		 * 							EXECUTION
 		 * Invoke the method for which you defined the mock behavior and 
 		 * pass in the appropriate arguments
 		 */
-		CustomerSummary cs = cManager.getCustomerSummary("Ram");
+		CustomerSummary cs = cManager.getCustomerSummary("Alice");
 		
 		
 		/*							VERIFICATION
@@ -180,19 +179,19 @@ public class ReservationManagerTest {
 		
 		/*							SETUP
 		 * The above call, defines the mock behavior ONLY if the input
-		 * passed to findCustomerById() method is "Ram".
+		 * passed to findCustomerById() method is "Alice".
 		 * 
-		 * If you want to mock for another input argument, say, "Murali",
+		 * If you want to mock for another input argument, say, "Bob",
 		 * then you need to define another mock action as shown below
 		 */
-		Mockito.when(daoMock.findCustomerByFirstName("Murali")).thenReturn(dummyMurali);
+		Mockito.when(daoMock.findCustomerByFirstName("Bob")).thenReturn(dummyBob);
 		
 		/*
 		 * 							EXECUTION
 		 * Invoke the method for which you defined the mock behavior and 
 		 * pass in the appropriate arguments
 		 */
-		CustomerSummary cs = cManager.getCustomerSummary("Murali");
+		CustomerSummary cs = cManager.getCustomerSummary("Bob");
 		
 		
 		/*							VERIFICATION
@@ -201,7 +200,7 @@ public class ReservationManagerTest {
 		 * 
 		 */
 		assertNotNull(cs);
-		assertEquals(cs.getFirstName(), dummyMurali.getFirstName());
+		assertEquals(cs.getFirstName(), dummyBob.getFirstName());
 		logger.info("Customer Summary:" + cs);
 		
 		
@@ -234,7 +233,7 @@ public class ReservationManagerTest {
 		 * 
 		 * You can also specify a regex in the Matchers argument
 		 */
-		Mockito.when(daoMock.findCustomerByFirstName(Matchers.anyString())).thenReturn(dummyMurali);
+		Mockito.when(daoMock.findCustomerByFirstName(Matchers.anyString())).thenReturn(dummyBob);
 		
 		
 		/*
@@ -251,7 +250,7 @@ public class ReservationManagerTest {
 		 * 
 		 */
 		assertNotNull(cs);
-		assertEquals(cs.getFirstName(), dummyMurali.getFirstName());
+		assertEquals(cs.getFirstName(), dummyBob.getFirstName());
 		logger.info("Customer Summary:" + cs);
 		
 		
@@ -279,8 +278,8 @@ public class ReservationManagerTest {
 		 * instead of the mocked implementation. In that case you can call
 		 * thenCallRealMethod() as shown below
 		 */
-		Mockito.when(daoMock.findCustomerByFirstName("Ram")).thenReturn(dummyRam);
-		Mockito.when(daoMock.findCustomerByFirstName("Murali")).thenCallRealMethod();
+		Mockito.when(daoMock.findCustomerByFirstName("Alice")).thenReturn(dummyAlice);
+		Mockito.when(daoMock.findCustomerByFirstName("Bob")).thenCallRealMethod();
 		
 		
 		
@@ -289,8 +288,8 @@ public class ReservationManagerTest {
 		 * Invoke the method for which you defined the mock behavior and 
 		 * pass in the appropriate arguments
 		 */
-		CustomerSummary cs = cManager.getCustomerSummary("Ram");
-		CustomerSummary cs2 = cManager.getCustomerSummary("Murali");
+		CustomerSummary cs = cManager.getCustomerSummary("Alice");
+		CustomerSummary cs2 = cManager.getCustomerSummary("Bob");
 		
 		
 		/*							VERIFICATION
@@ -299,14 +298,14 @@ public class ReservationManagerTest {
 		 * 
 		 */
 		assertNotNull(cs);		
-		assertEquals(cs.getFirstName(), dummyRam.getFirstName());
+		assertEquals(cs.getFirstName(), dummyAlice.getFirstName());
 		logger.info("Customer Summary:" + cs2);
 		
 		/*
-		 * Real implementation would return customer name as "Murali"
-		 * and not "Mock-Murali"
+		 * Real implementation would return customer name as "Bob"
+		 * and not "Mock-Bob"
 		 */
-		assertEquals(cs2.getFirstName(), "Murali");
+		assertEquals(cs2.getFirstName(), "Bob");
 		assertNotNull(cs2);
 		logger.info("Customer Summary:" + cs2);
 		
@@ -331,7 +330,7 @@ public class ReservationManagerTest {
 		/*							SETUP
 		 * Define the mock
 		 */
-		Mockito.when(daoMock.findCustomerByFirstName(Matchers.anyString())).thenReturn(dummyMurali);
+		Mockito.when(daoMock.findCustomerByFirstName(Matchers.anyString())).thenReturn(dummyBob);
 		
 		
 		/*
@@ -348,7 +347,7 @@ public class ReservationManagerTest {
 		 * 
 		 */
 		assertNotNull(cs);
-		assertEquals(cs.getFirstName(), dummyMurali.getFirstName());
+		assertEquals(cs.getFirstName(), dummyBob.getFirstName());
 		logger.info("Customer Summary:" + cs);
 		
 		/*
@@ -383,7 +382,7 @@ public class ReservationManagerTest {
 		 */
 		List<Customer> list = cManager.listCustomers();
 		List<Customer> spy = Mockito.spy(list);
-		Mockito.doReturn(dummyRam).when(spy).get(0);
+		Mockito.doReturn(dummyAlice).when(spy).get(0);
 			
 		
 		/*
@@ -402,7 +401,7 @@ public class ReservationManagerTest {
 		 * 
 		 */
 		assertNotNull(spy.get(0));
-		assertEquals(spy.get(0).getFirstName(), dummyRam.getFirstName());
+		assertEquals(spy.get(0).getFirstName(), dummyAlice.getFirstName());
 		logger.info("Customer:" + spy.get(0));
 		
 
