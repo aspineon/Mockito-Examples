@@ -2,13 +2,17 @@ Things you will need to run
 
 Maven
 Derby DB
+
+
 Setting up Maven 
+
 1. Download Maven from http://maven.apache.org/ 
 2. Once installed, set MVN_HOME to the path where you've installed it 
 3. Add $MVN_HOME/bin to your PATH variable 
 4. To compile code, use mvn compile
 
 Setting up Derby DB Network Server (For in-memory DB setup, please see next section) 
+
 1. Download Derby DB binaries from http://db.apache.org/ 
 2. Once installed, set DERBY_HOME to the path where you've installed it 
 3. Add $DERBY_HOME/bin to your PATH variable 
@@ -17,6 +21,7 @@ Setting up Derby DB Network Server (For in-memory DB setup, please see next sect
 6. Enter the following command ij> connect 'jdbc:derby://localhost:1527/mockitoDB;create=true';
 
 Setting up Derby DB in memory 
+
 1. To use an in-memory DB instead of a network server modify this line in CustomerDao.java
 
 private static String persistenceType = "persistence-network";
