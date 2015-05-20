@@ -14,7 +14,7 @@ public class CustomerManager {
 	
 	
 	
-	public CustomerManager() {
+	private CustomerManager() {
 		
 	}
 
