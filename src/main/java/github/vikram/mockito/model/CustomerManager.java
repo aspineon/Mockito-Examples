@@ -1,6 +1,7 @@
 package github.vikram.mockito.model;
 
-import java.util.List;
+import github.vikram.mockito.mock.CustomerDao;
+
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -12,45 +13,49 @@ import javax.persistence.Query;
 public class CustomerManager {
 	
 	private static Logger logger = Logger.getLogger("CustomerManager");
+	private CustomerDao customerDao = null;
+	private static CustomerManager cManager = null;
 	
-	private static EntityManagerFactory emf = null;
-	private static EntityManager em = null;
-	private static EntityTransaction tx = null;
 	
-
-	private CustomerManager() {
+	
+	public CustomerManager() {
 		
 	}
-	
-	public static Customer getCustomer(String customerName) {
+
+	public static CustomerManager createInstance() {
 		
-		Customer c = null;
-		
-		try{
-			emf = Persistence.createEntityManagerFactory("persistence-unit");
-			em = emf.createEntityManager();
-			
-			Query query = em.createQuery("SELECT c FROM Customer c WHERE c.firstName='"+customerName+"'");
-			c = (Customer) query.getSingleResult();
-			
-		} catch(Exception e) {
-			logger.info("Error trying to fetch customer record");
-		}finally {
-		
-			em.close();
-			emf.close();
-			
+		if(cManager == null) {
+			cManager = new CustomerManager();
+			cManager.setCustomerDao(new CustomerDao());
 		}
 		
-		return c;
+		return cManager;
+		
 		
 	}
 	
-	public static CustomerSummary getCustomerSummary(String customerName) {
+	public CustomerDao getCustomerDao() {
+		return customerDao;
+	}
+
+	public void setCustomerDao(CustomerDao customerDao) {
+		this.customerDao = customerDao;
+	}
+	
+	public CustomerSummary getCustomerSummary(String customerName) {
 		
+		
+		Customer c = customerDao.findCustomerByFirstName(customerName);
+		
+		CustomerSummary cs = generateCustomerSummary(c);
+		
+		return cs;
+		
+		
+	}
+	
+	private CustomerSummary generateCustomerSummary(Customer c) {
 		CustomerSummary cs = new CustomerSummary();
-		
-		Customer c = CustomerManager.getCustomer(customerName);
 		
 		cs.setFirstName(c.getFirstName());
 		cs.setLicenseNumber(c.getLicenseNumber());
@@ -58,6 +63,12 @@ public class CustomerManager {
 		return cs;
 		
 	}
+	
+	public Customer getCustomerByFirstName(String customerName) {
+		return(customerDao.findCustomerByFirstName(customerName));
+	}
+
+	
 	
 	
 	

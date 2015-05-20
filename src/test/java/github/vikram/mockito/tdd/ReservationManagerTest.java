@@ -2,9 +2,7 @@ package github.vikram.mockito.tdd;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import github.vikram.mockito.model.Car;
-import github.vikram.mockito.model.CarManager;
-import github.vikram.mockito.model.CarSummary;
+import github.vikram.mockito.mock.CustomerDao;
 import github.vikram.mockito.model.CustomerManager;
 import github.vikram.mockito.model.CustomerSummary;
 
@@ -22,15 +20,19 @@ public class ReservationManagerTest {
 	
 	private ReservationManager rManager = null;
 	private String TEST_CUSTOMER_NAME = "Ram";
+	private static CustomerManager cManager = null;
 	
 	@BeforeClass
 	public static void init() {
-		logger = Logger.getLogger("Test logger");	
+		logger = Logger.getLogger("Test logger");
+		cManager = CustomerManager.createInstance();
+		cManager.setCustomerDao(new CustomerDao());
 	}
 	
 	@AfterClass
 	public static void destroy() {
 		logger = null;
+		cManager = null;
 	}
 	
 	@Before
@@ -44,29 +46,13 @@ public class ReservationManagerTest {
 	}
 	
 	@Test
-	public void testNullCustomerLookupMustThrowException() {
-		rManager.getCustomerReservation(TEST_CUSTOMER_NAME);
-	}
-	
-	@Test
 	public void testValidCustomerNameShouldGenerateValidCustomerSummary() {
 		
-		CustomerSummary cs = CustomerManager.getCustomerSummary(TEST_CUSTOMER_NAME);
+		CustomerSummary cs = cManager.getCustomerSummary(TEST_CUSTOMER_NAME);
 		logger.info("Customer Summary: " + cs);
 		
 		assertNotNull(cs);
 		assertEquals(cs.getFirstName(), TEST_CUSTOMER_NAME);
-		
-	}
-	
-	@Test
-	public void testValidVehicleNameShouldGenerateValidVehicleSummary(){
-		Car c = null;
-		CarSummary cs = CarManager.convertCarSummary(c);
-		
-		assertNotNull(cs);
-		assertEquals(cs.getMake(), c.getMake());
-		assertEquals(c.getMiles(), cs.getMiles());
 		
 	}
 

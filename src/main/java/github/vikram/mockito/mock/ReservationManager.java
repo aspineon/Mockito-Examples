@@ -13,6 +13,7 @@ public class ReservationManager {
 	
 	private List<Vehicle> vehicles = new ArrayList<Vehicle>();
 	private Map<String, Vehicle> reservations = new HashMap<String, Vehicle>();
+	private static CustomerManager cManager = CustomerManager.createInstance();
 	
 
 	public List<Vehicle> getVehicles() {
@@ -31,8 +32,6 @@ public class ReservationManager {
 		if(customerName == null) {
 			throw(new IllegalArgumentException("Argument can not be null"));
 		}
-		
-		Customer c = CustomerManager.getCustomer(customerName);
 		
 		
 		return(reservations.get(customerName));
