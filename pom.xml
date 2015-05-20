@@ -39,7 +39,17 @@
 	<groupId>org.powermock</groupId>
 	<artifactId>powermock-core</artifactId>
 	<version>1.6.2</version>
-</dependency>
+	</dependency>
+	<dependency>
+	<groupId>org.powermock</groupId>
+	<artifactId>powermock-api-easymock</artifactId>
+	<version>1.6.2</version>
+	</dependency>
+	<dependency>
+	<groupId>org.easymock</groupId>
+	<artifactId>easymock</artifactId>
+	<version>3.3.1</version>
+	</dependency>
   	<dependency>
 	<groupId>org.eclipse.persistence</groupId>
 	<artifactId>org.eclipse.persistence.jpa</artifactId>

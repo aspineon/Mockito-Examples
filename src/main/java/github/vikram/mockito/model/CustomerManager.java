@@ -81,6 +81,10 @@ public class CustomerManager {
 		return(CustomerDao.getCustomerByFirstName(customerName));
 	}
 	
+	public Customer createNewCustomer() {
+		return(new Customer());
+	}
+	
 	
 
 }

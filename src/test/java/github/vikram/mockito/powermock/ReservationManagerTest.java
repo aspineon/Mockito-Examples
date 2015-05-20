@@ -25,7 +25,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
  * that you are trying to mock 
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(CustomerDao.class)
+@PrepareForTest({CustomerDao.class, CustomerManager.class})
 public class ReservationManagerTest {
 	
 	private static Logger logger = null;
@@ -124,6 +124,61 @@ public class ReservationManagerTest {
 		assertNotNull(c);
 		assertEquals(c.getFirstName(), dummyAlice.getFirstName());
 		logger.info("Customer: " + c);
+		
+		
+	}
+	
+	
+	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
+	 * All test cases must follow this convention of
+	 * 			Setup
+	 * 			Execution
+	 * 			Verification
+	 *
+	 */
+	@Test
+	//@Ignore
+	public void testMockConstructionOfObjects() throws Exception {
+		
+		/*
+		 * 			SETUP
+		 * 
+		 * Specify the class and the constructor of the class for which you 
+		 * want to mock. Here we are mocking the Customer() no-arg constructor
+		 * and then we return "Mock-Alice" anytime, somebody does a new Customer()
+		 * and then does getFirstName()
+		 * 
+		 */
+		Customer custMock = PowerMockito.mock(Customer.class);
+		PowerMockito.when(custMock.getFirstName()).thenReturn("Mock-Alice");
+        PowerMockito.whenNew(Customer.class).withNoArguments().thenReturn(custMock);
+        
+        
+        /*
+		 * 			EXECUTION
+		 * 
+		 * Get instance of CustomerManager and invoke Customer()
+		 * no-arg constructor from inside the createNewCustomer() method
+		 * 
+		 * For this, we need add CustomerManager.class to @PrepareForTest
+		 * as well. Because the constructor is being invoked from that class
+		 * 
+		 */	
+        CustomerManager cManager = CustomerManager.createInstance();
+        Customer c = cManager.createNewCustomer();
+        
+        
+        /*			VERIFICATION
+		 * Verify the result returned by the above invocation
+		 * 
+		 */	
+        logger.info("FirstName=" + c.getFirstName());
+        logger.info("LastName=" + c.getLastName());
+        assertEquals(c.getFirstName(), "Mock-Alice");
+		
 		
 		
 	}
