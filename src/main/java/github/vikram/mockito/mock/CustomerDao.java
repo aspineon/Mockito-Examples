@@ -3,6 +3,7 @@ package github.vikram.mockito.mock;
 import github.vikram.mockito.model.Customer;
 import github.vikram.mockito.model.CustomerManager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -103,6 +104,7 @@ public class CustomerDao {
 		return customers;
 		
 	}
+	
 
 
 }

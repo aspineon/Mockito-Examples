@@ -2,13 +2,9 @@ package github.vikram.mockito.model;
 
 import github.vikram.mockito.mock.CustomerDao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 public class CustomerManager {
 	
@@ -69,7 +65,16 @@ public class CustomerManager {
 	}
 
 	
-	
+	public List<Customer> listCustomers() {
+		List<Customer> customers  = new ArrayList<Customer>();
+		
+		customers.add(new Customer(1L, "Ram", "K", "NY", "ABC123"));
+		customers.add(new Customer(2L, "Murali", "A", "SF", "XYZ123"));
+		customers.add(new Customer(3L, "Sajjad", "R", "FR", "123ABC"));
+		
+		
+		return customers;
+	}
 	
 	
 
