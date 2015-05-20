@@ -79,6 +79,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testVehicleLookUp(){
 		
 		/*
@@ -123,6 +124,7 @@ public class ReservationManagerTest {
 	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
+	@Ignore
 	public void testNullArgumentsShouldThrowException(){
 		
 		/*
@@ -184,6 +186,7 @@ public class ReservationManagerTest {
 	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
+	@Ignore
 	public void testNullCustomerLookupMustThrowException() {
 		
 		/*
@@ -222,44 +225,7 @@ public class ReservationManagerTest {
 		fail();
 		
 	}
-	
-	/*
-	 * Methods annotated with @Test signal JUnit to treat
-	 * this as a test case. 
-	 * 
-	 * All test cases must follow this convention of
-	 * 			Setup
-	 * 			Execution
-	 * 			Verification
-	 *
-	 * Sometimes you may need to ignore an existing test case
-	 * or you may not want a test case to run. To make JUnit not run
-	 * this test, annotate your @Test method with @Ignore
-	 * 
-	 */
-	@Test
-	@Ignore
-	public void testIgnoreTestCase() {
-		
-		
-		/*
-		 * 			SETUP
-		 * All data is setup in @Before. Nothing specific to set here
-		 */
-		
-		
-		/*
-		 * 			EXECUTION
-		 * Execute the method under test.
-		 */ 
-		
-		/*			VERIFICATION
-		 * Verify the result returned by the above invocation
-		 * 
-		 */	
-		logger.info("This line should not be printed");
-		fail();
-	}
+
 	
 	/*
 	 * Methods that are not annotated with @Test are not 

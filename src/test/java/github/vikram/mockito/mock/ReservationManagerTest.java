@@ -14,6 +14,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
@@ -139,6 +140,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testMockitoToMockGivenInputArgument() {
 		
 		
@@ -183,6 +185,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testMockitoToMockADifferentInputArgument() {
 		
 		
@@ -228,6 +231,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testMockitoForWideRangeOfInput() {
 		
 		
@@ -278,6 +282,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testMockitoPartialMock() {
 		
 		
@@ -333,6 +338,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testMockitoVerifyMock() {
 		
 		
@@ -382,6 +388,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testMockitoSpy() {
 		
 		
@@ -440,6 +447,7 @@ public class ReservationManagerTest {
 	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
+	@Ignore
 	public void testMockitoException() {
 		
 		
@@ -506,7 +514,7 @@ public class ReservationManagerTest {
 	 * 
 	 * What if CustomerDao is not accessible via arguments or setters?
 	 * 
-	 * For these advanced features, you can use PowerMock.
+	 * For these advanced features, you can use PowerMockito or PowerMock.
 	 * While mockito uses a proxy-based approach to intercept calls
 	 * and return values, PowerMock uses a custom class loader
 	 * and manipulates the byte code.

@@ -12,6 +12,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
@@ -87,6 +88,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testStaticGetCustomer() {
 		
 		/*
@@ -140,7 +142,7 @@ public class ReservationManagerTest {
 	 *
 	 */
 	@Test
-	//@Ignore
+	@Ignore
 	public void testMockConstructionOfObjects() throws Exception {
 		
 		/*

@@ -1,6 +1,8 @@
 package github.vikram.mockito.junit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.util.logging.Logger;
 
@@ -8,6 +10,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class CalculatorTest {
@@ -69,6 +72,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testAddTwoIntsMustReturnCorrectValue(){
 		
 		/*
@@ -109,6 +113,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testSubtractTwoIntsMustReturnCorrectValue(){
 		
 		/*
@@ -149,6 +154,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testMultiplyTwoIntsMustReturnCorrectValue(){
 		
 		/*
@@ -188,6 +194,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test
+	@Ignore
 	public void testDivideTwoIntsMustReturnCorrectValue(){
 		
 		/*
@@ -238,6 +245,7 @@ public class CalculatorTest {
 	 *
 	 */
 	@Test(expected=ArithmeticException.class)
+	@Ignore
 	public void testDivideTwoByZeroMustThrowArithmeticException(){
 		
 		/*
@@ -265,6 +273,45 @@ public class CalculatorTest {
 			throw e;
 		}
 		
+		
+		/*			VERIFICATION
+		 * Verify the result returned by the above invocation
+		 * 
+		 */	
+		logger.info("This line should not be printed");
+		fail();
+	}
+	
+	
+	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
+	 * All test cases must follow this convention of
+	 * 			Setup
+	 * 			Execution
+	 * 			Verification
+	 *
+	 * Sometimes you may need to ignore an existing test case
+	 * or you may not want a test case to run. To make JUnit not run
+	 * this test, annotate your @Test method with @Ignore
+	 * 
+	 */
+	@Test
+	@Ignore
+	public void testIgnoreTestCase() {
+		
+		
+		/*
+		 * 			SETUP
+		 * All data is setup in @Before. Nothing specific to set here
+		 */
+		
+		
+		/*
+		 * 			EXECUTION
+		 * Execute the method under test.
+		 */ 
 		
 		/*			VERIFICATION
 		 * Verify the result returned by the above invocation
