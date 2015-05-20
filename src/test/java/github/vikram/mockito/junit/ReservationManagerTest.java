@@ -36,7 +36,7 @@ public class ReservationManagerTest {
 	/*
 	 * The @AfterClass annotation is run ONCE after
 	 * all the tests have been executed. You can
-	 * use this section to destory or clear any resources
+	 * use this section to destroy or clear any resources
 	 * you have allocated in the @BeforeClass section
 	 */
 	@AfterClass
@@ -66,38 +66,7 @@ public class ReservationManagerTest {
 		rManager = null;
 	}
 	
-	
-	/*
-	 * Methods that are not annotated with @Test are not 
-	 * treated as test cases. They are just regular functions
-	 * that may be called by your test cases. Use this section
-	 * when there is a lot of initialization to do for a specific
-	 * object and you want it to be part of a separate function
-	 */
-	public void loadManagerData(ReservationManager rManager) {
-		
-		//Create Vehicles
-		Vehicle audi = new Car("Audi", "A5", 42000, "1234-456", 47500.00);
-		Vehicle chevy = new Van("Chevy", "E250", 18000, "ABCD-1234", 16000.00);
-		Vehicle ford = new PickupTruck("Ford", "F150", 5000, "AOJH-6676", 22500.00);
-		
-		rManager.getVehicles().add(audi);
-		rManager.getVehicles().add(chevy);
-		rManager.getVehicles().add(ford);	
-		
-		//Create Customers
-		Customer murali = new Customer(1000L, "Murali", "Anantha", "San Francisco", "4XER132");
-		Customer sajjad = new Customer(1001L, "Sajjad", "Raza", "Fremont", "6RCC215");
-		Customer ram = new Customer(1002L, "Ram", "Kuchimanchi", "Austin", "9CZW481");
-		
-		//Create Reservations
-		rManager.makeReservation(murali, audi);
-		rManager.makeReservation(sajjad, chevy);
-		rManager.makeReservation(ram, ford);
-		
-		
-	}
-	
+
 	
 	/*
 	 * Methods annotated with @Test signal JUnit to treat
@@ -147,6 +116,10 @@ public class ReservationManagerTest {
 	 * specific exception. Use the 'expected' parameter of
 	 * @Test to specify the Exception class that is expected
 	 * The test will fail if that Exception is not thrown
+	 * 
+	 * These types of methods are usually to test null parameters
+	 * or special cases where you need the method to throw 
+	 * and exception for a given input
 	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
@@ -200,6 +173,11 @@ public class ReservationManagerTest {
 	 * 			Execution
 	 * 			Verification
 	 *
+	 * You can specify if a particular test must expect a
+	 * specific exception. Use the 'expected' parameter of
+	 * @Test to specify the Exception class that is expected
+	 * The test will fail if that Exception is not thrown
+	 * 
 	 * These types of methods are usually to test null parameters
 	 * or special cases where you need the method to throw 
 	 * and exception for a given input
@@ -283,7 +261,36 @@ public class ReservationManagerTest {
 		fail();
 	}
 	
-	
+	/*
+	 * Methods that are not annotated with @Test are not 
+	 * treated as test cases. They are just regular functions
+	 * that may be called by your test cases. Use this section
+	 * when there is a lot of initialization to do for a specific
+	 * object and you want it to be part of a separate function
+	 */
+	public void loadManagerData(ReservationManager rManager) {
+		
+		//Create Vehicles
+		Vehicle audi = new Car("Audi", "A5", 42000, "1234-456", 47500.00);
+		Vehicle chevy = new Van("Chevy", "E250", 18000, "ABCD-1234", 16000.00);
+		Vehicle ford = new PickupTruck("Ford", "F150", 5000, "AOJH-6676", 22500.00);
+		
+		rManager.getVehicles().add(audi);
+		rManager.getVehicles().add(chevy);
+		rManager.getVehicles().add(ford);	
+		
+		//Create Customers
+		Customer murali = new Customer(1000L, "Murali", "Anantha", "San Francisco", "4XER132");
+		Customer sajjad = new Customer(1001L, "Sajjad", "Raza", "Fremont", "6RCC215");
+		Customer ram = new Customer(1002L, "Ram", "Kuchimanchi", "Austin", "9CZW481");
+		
+		//Create Reservations
+		rManager.makeReservation(murali, audi);
+		rManager.makeReservation(sajjad, chevy);
+		rManager.makeReservation(ram, ford);
+		
+		
+	}
 	
 
 }

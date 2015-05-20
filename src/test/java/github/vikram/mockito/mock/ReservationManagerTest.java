@@ -14,7 +14,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
@@ -35,7 +34,9 @@ public class ReservationManagerTest {
 	 * You can @Mock annotation to define a mock.
 	 * The following statement creates a mock of type
 	 * CustomerDao.class. Another way to defining a mock
-	 * is shown in testMockitoChaining()
+	 * is by doing
+	 * 
+	 * 	CustomerDao daoMock = Mockito.mock(CustomerDao.class);
 	 *
 	 */
 	@Mock
@@ -44,19 +45,35 @@ public class ReservationManagerTest {
 	private static Customer dummyMurali = null; 
 	
 	
+	/*
+	 * The @BeforeClass annotation is run ONCE before
+	 * beginning to execute any of the test cases. You
+	 * can use this section to define objects such as loggers
+	 */
 	@BeforeClass
 	public static void init() {
 		logger = Logger.getLogger("Test logger");	
 		
 	}
 	
+	
+	/*
+	 * The @AfterClass annotation is run ONCE after
+	 * all the tests have been executed. You can
+	 * use this section to destory or clear any resources
+	 * you have allocated in the @BeforeClass section
+	 */
 	@AfterClass
 	public static void destroy() {
 		logger = null;
 	}
 	
 	
-	//Define mockito to return dummyObjects instead of making calls to DB
+	/*
+	 * @Before section is run before EVERY test. Use this
+	 * section to initialize objects that need to be inited
+	 * for every run
+	 */
 	@Before
 	public void initManager() {
 		
@@ -92,6 +109,11 @@ public class ReservationManagerTest {
 		
 	}
 	
+	/*
+	 * @After us run after EVERY test case is executed.
+	 * Use this section to destory or clear our objects
+	 * that you inited in the @Before section
+	 */
 	@After
 	public void destroyManager() {
 		daoMock = null;
@@ -99,10 +121,14 @@ public class ReservationManagerTest {
 	
 	
 	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
 	 * All test cases must follow this convention of
 	 * 			Setup
 	 * 			Execution
 	 * 			Verification
+	 *
 	 */
 	@Test
 	public void testMockitoToMockGivenInputArgument() {
@@ -137,11 +163,16 @@ public class ReservationManagerTest {
 		
 	}
 	
+
 	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
 	 * All test cases must follow this convention of
 	 * 			Setup
 	 * 			Execution
 	 * 			Verification
+	 *
 	 */
 	@Test
 	public void testMockitoToMockADifferentInputArgument() {
@@ -177,11 +208,16 @@ public class ReservationManagerTest {
 	}
 	
 	
+
 	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
 	 * All test cases must follow this convention of
 	 * 			Setup
 	 * 			Execution
 	 * 			Verification
+	 *
 	 */
 	@Test
 	public void testMockitoForWideRangeOfInput() {
@@ -222,11 +258,16 @@ public class ReservationManagerTest {
 	}
 	
 	
+
 	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
 	 * All test cases must follow this convention of
 	 * 			Setup
 	 * 			Execution
 	 * 			Verification
+	 *
 	 */
 	@Test
 	public void testMockitoPartialMock() {
@@ -272,11 +313,16 @@ public class ReservationManagerTest {
 	}
 	
 	
+
 	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
 	 * All test cases must follow this convention of
 	 * 			Setup
 	 * 			Execution
 	 * 			Verification
+	 *
 	 */
 	@Test
 	public void testMockitoVerifyMock() {
@@ -316,11 +362,16 @@ public class ReservationManagerTest {
 		
 	}
 
+
 	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
 	 * All test cases must follow this convention of
 	 * 			Setup
 	 * 			Execution
 	 * 			Verification
+	 *
 	 */
 	@Test
 	public void testMockitoSpy() {
@@ -360,11 +411,25 @@ public class ReservationManagerTest {
 	
 	
 	
+
 	/*
+	 * Methods annotated with @Test signal JUnit to treat
+	 * this as a test case. 
+	 * 
 	 * All test cases must follow this convention of
 	 * 			Setup
 	 * 			Execution
 	 * 			Verification
+	 *
+	 * You can specify if a particular test must expect a
+	 * specific exception. Use the 'expected' parameter of
+	 * @Test to specify the Exception class that is expected
+	 * The test will fail if that Exception is not thrown
+	 * 
+	 * These types of methods are usually to test null parameters
+	 * or special cases where you need the method to throw 
+	 * and exception for a given input
+	 * 
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testMockitoException() {
