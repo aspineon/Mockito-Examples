@@ -77,5 +77,10 @@ public class CustomerManager {
 	}
 	
 	
+	public static Customer getCustomerStaticByFirstName(String customerName) {
+		return(CustomerDao.getCustomerByFirstName(customerName));
+	}
+	
+	
 
 }

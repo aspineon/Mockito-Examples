@@ -107,6 +107,31 @@ public class CustomerDao {
 		
 	}
 	
+	public static Customer getCustomerByFirstName(String customerName){
+		Customer c = null;
+		
+		try{
+			emf = Persistence.createEntityManagerFactory(persistenceType);
+			em = emf.createEntityManager();
+			
+			Query query = em.createQuery("SELECT c FROM Customer c WHERE c.firstName='"+customerName+"'");
+			c = (Customer) query.getSingleResult();
+			
+		} catch(Exception e) {
+			logger.info("Error trying to fetch customer record");
+			//logger.info(ExceptionUtils.getFullStackTrace(e));
+		}finally {
+		
+			if (em != null) {
+				em.close();
+				emf.close();
+			}
+			
+		}
+		
+		return c;
+	}
+	
 
 
 }
